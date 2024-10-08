@@ -1,4 +1,11 @@
-use prova;
+drop schema if exists spring;
+drop user if exists 'user'@'localhost';
+
+create schema spring;
+create user 'user'@'localhost' identified by 'pass123';
+grant select, insert, delete, update on spring.* to user@'localhost';
+
+use spring;
 create table tra_trabalho (
  tra_id bigint primary key auto_increment,
  tra_titulo varchar(100) not null unique,
